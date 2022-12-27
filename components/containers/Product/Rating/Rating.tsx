@@ -1,29 +1,37 @@
 import React, { useMemo } from 'react';
-import { Rating as RatingProps } from '../../../../store';
+import { Product, Rating as RatingProps } from '../../../../store';
 import styles from './Rating.module.scss';
 
 interface RatingComponentProps {
-    rating: RatingProps;
+    product: Product;
 }
 
-export const Rating: React.FC<RatingComponentProps> = ({ rating }) => {
-    const stars = useMemo(() => new Array(5).fill(false).map((_, i) => i < Math.round(rating.rate)), []);
+export const Rating: React.FC<RatingComponentProps> = ({ product }) => {
+    const stars = useMemo(
+        () => new Array(5).fill(false).map((_, i) => i < Math.round(product.rating.rate)),
+        []
+    );
     const verb = useMemo(
         () =>
-            rating.count === 1
+            product.rating.count === 1
                 ? 'Отзыв'
-                : rating.count % 100 === 2 || rating.count % 100 === 3 || rating.count % 100 === 4
+                : product.rating.count % 100 === 2 ||
+                  product.rating.count % 100 === 3 ||
+                  product.rating.count % 100 === 4
                 ? 'Отзыва'
                 : 'Отзывов',
         []
     );
     return (
         <div className={styles.Rating}>
-            {stars.map((star) => (
-                <span className={star ? styles.Star : `${styles.Star} ${styles.Filled}`} />
+            {stars.map((star, i) => (
+                <span
+                    key={`rating-${product.id}-${i}`}
+                    className={star ? styles.Star : `${styles.Star} ${styles.Filled}`}
+                />
             ))}
             <span>
-                <a href='#'>{` ${rating.count} ${verb}`}</a>
+                <a href='#'>{` ${product.rating.count} ${verb}`}</a>
             </span>
         </div>
     );

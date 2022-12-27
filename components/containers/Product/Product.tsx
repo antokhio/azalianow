@@ -36,7 +36,7 @@ export const Product: React.FC<ProductComponentProps> = ({ product }) => {
                 className={styles.Category}
             >
                 <p>{product.category}</p>
-                <Rating rating={product.rating} />
+                <Rating product={product} />
             </div>
 
             <p className={styles.Description}>{product.description}</p>

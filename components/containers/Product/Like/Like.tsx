@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
+
 import styles from './Like.module.scss';
 
 interface LikeProps {}
@@ -16,7 +17,7 @@ export const Like: React.FC<LikeProps> = () => {
                 <path
                     d='M20 18C20 15.7909 18.2091 14 16 14C13.7909 14 12 15.7909 12 18C12 22 18 26 20 28'
                     stroke='currentcolor'
-                    stroke-linecap='round'
+                    strokeLinecap='round'
                 />
                 <path d='M20.2769 24C21.3119 23.1153 22.4675 22.0969 23.4677 21' stroke='currentcolor' />
                 <path
