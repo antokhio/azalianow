@@ -25,16 +25,7 @@ export const Product: React.FC<ProductComponentProps> = ({ product }) => {
                 className={styles.Image}
             />
 
-            <div
-                style={{
-                    display: 'flex',
-                    width: '100%',
-                    justifyContent: 'space-between',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                }}
-                className={styles.Category}
-            >
+            <div className={styles.Category}>
                 <p>{product.category}</p>
                 <Rating product={product} />
             </div>
@@ -44,14 +35,7 @@ export const Product: React.FC<ProductComponentProps> = ({ product }) => {
                 <span>{`${product.price} ₽`}</span>
                 /шт.
             </div>
-            <div
-                style={{
-                    display: 'flex',
-                    width: '100%',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                }}
-            >
+            <div className={styles.Footer}>
                 <Add product={product} />
                 <Like />
             </div>
