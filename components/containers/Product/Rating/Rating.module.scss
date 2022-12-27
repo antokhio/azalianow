@@ -1,0 +1,19 @@
+.Rating {
+    .Star {
+        color: #f26a61;
+        &:hover {
+            color: #f7a6a1;
+            &::before {
+                content: '★';
+            }
+        }
+        &::before {
+            content: '★';
+        }
+    }
+    .Filled {
+        &::before {
+            content: '☆';
+        }
+    }
+}
